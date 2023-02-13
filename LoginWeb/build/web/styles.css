@@ -1,0 +1,25 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+      /* Add custom styles here */
+      /* Gold color for the page */
+      :root {
+        --gold: #ffd700;
+      }
+      /* Add animation to the header text */
+      .header h1 {
+        animation: slideInDown 1s ease-in-out;
+        color: var(--gold);
+        text-shadow: 1px 1px #333;
+      }
+      /* Animation Keyframes */
+      @keyframes slideInDown {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+ 

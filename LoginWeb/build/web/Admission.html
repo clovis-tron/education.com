@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Sign | UP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+    
+		<div class="wrapper" style="background-image: url('images/final.png');">
+			<div class="inner">
+                            <form action="AdmissionServlet" method="post" >
+					<h3>Sign Up</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="name">First Name</label>
+							<input type="text" id="firstname" name="firstname" class="form-control" required >
+						</div>
+						<div class="form-wrapper">
+							<label for="name">Last Name</label>
+							<input type="text" id="lastname" name="lastname" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-wrapper">
+						<label for="email">Email</label>
+						<input type="text" id="email" name="email" class="form-control" required>
+					</div>
+					<div class="form-wrapper">
+						<label for="password">Password</label>
+						<input type="password" id="password" name="password" class="form-control" required placeholder="Use special characters and capital letters">
+					</div>
+					<div class="form-wrapper">
+						<label for="password">Confirm Password</label>
+						<input type="password" id="confirmpassword" name="confirmpassword" class="form-control" required  placeholder="Use special characters and capital letters">
+					</div>
+                                        
+					
+					 <button type="submit" onclick="return validate()">Sign UP</button>
+				</form>
+			</div>
+		</div>
+		<script>
+			function validate()
+			{
+				
+				var firstname = document.getElementById("firstname").value;
+				var lastname = document.getElementById("lastname").value;
+				var email = document.getElementById("email").value;
+				var emailletter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				var letters = /^[A-Za-z]+$/;
+				let password = document.getElementById("password").value;
+				let confirmpassword = document.getElementById("confirmpassword").value;
+				if(!firstname.match(letters)||!lastname.match(letters))
+				{
+                    alert("Invalid Name");
+				}
+				else
+					if (!emailletter.test(email)) {
+						alert("Invalid email address");
+						return email;
+					}
+							else{
+								if (password.length < 8) {
+									alert("Password must be at least 8 characters long.");
+          								return;
+								}
+
+								if (password !== confirmpassword) {
+									alert("Password and confirm password must match.");
+        								  return;
+								}
+
+								let hasLowerCase = false;
+								let hasUpperCase = false;
+								let hasNumber = false;
+								let hasSpecialChar = false;
+
+								for (let char of password) {
+									if (/[a-z]/.test(char)) {
+									hasLowerCase = true;
+									} else if (/[A-Z]/.test(char)) {
+									hasUpperCase = true;
+									} else if (/\d/.test(char)) {
+									hasNumber = true;
+									} else if (/[!@#$%^&*]/.test(char)) {
+									hasSpecialChar = true;
+									}
+								}
+
+								if (!hasLowerCase || !hasUpperCase || !hasNumber || !hasSpecialChar) {
+									alert("Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.");
+          								return password;
+									}
+							}
+			
+//                        
+//                        localStorage.setItem("firstname", document.getElementById("firstname").value);
+//                        localStorage.setItem("lastname", document.getElementById("lastname").value);
+//                          localStorage.setItem("email", document.getElementById("email").value);
+//                          localStorage.setItem("password", document.getElementById("password").value);
+//                          localStorage.setItem("comfirmpassword", document.getElementById("confirmpassword").value);
+//                            window.location.href = "Continue.html";
+                        
+								// Store the values in local storage
+//								localStorage.setItem("firstname", firstname);
+//								localStorage.setItem("lastname", lastname);
+//						     	localStorage.setItem("email", email);
+//							
+								
+			}
+							
+								
+					
+				
+				
+		</script>
+
+
+<!--<script>//	function loadData() {
+//	// Retrieve the values from local storage
+//	var storedfirstname = localStorage.getItem("firstname");
+//	var storedlastname = localStorage.getItem("lastname");
+//	var storedEmail = localStorage.getItem("email");
+//	
+//	// Set the values back to the input fields
+//	document.getElementById("firstname").value = storedfirstname;
+//	document.getElementById("lastname").value = storedlastname;
+//	document.getElementById("email").value = storedEmail;
+
+
+</script>-->
+
+
+	</body>
+</html>

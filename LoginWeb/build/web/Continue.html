@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Admission | Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('images/final.png');">
+			<div class="inner">
+				<form action="InfoServlet" method="post">
+					<h3>Admission Form</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+                                                  
+                                                    <label for="phone">Phone Num:</label>
+                                <input type="text" id="phone" name="phone" placeholder="Write 10 digits" required pattern="[0-9]{10}" class="form-control">
+						</div>
+						<div class="form-wrapper">
+							<label for="birthdate">Birthdate:</label>
+                                 <input type="date" id="birthdate" name="birthdate" class="form-control" required>
+						</div>
+					</div>
+					<div class="form-wrapper">
+						<label for="gender">Gender:</label>
+                                    <select id="gender" name="gender"  class="form-control" required>
+                                                 <option value="">Choose</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                        </select>
+
+					</div>
+					
+                                        <div class="form-wrapper">
+                                                  
+                                                    <label for="studentid">Student ID:</label>
+                                <input type="text" id="studentid" name="studentid" placeholder="Write 5 digits" required pattern="[0-9]{5}" class="form-control">
+						</div>
+                                        
+					<div class="form-wrapper">
+						<label for="degree">Degree:</label>
+                                <select id="degree" name="degree"  class="form-control" required>
+                                    <option value="">Select a degree</option>
+                                    <option value="Bachelor of Science">Bachelor of Science</option>
+                                    <option value="Bachelor of Arts">Bachelor of Arts</option>
+                                    <option value="Master of Science">Master of Science</option>
+                                    <option value="Master of Arts">Master of Arts</option>
+                                </select>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" required> I accept the Terms of Use & Privacy Policy.
+							<span class="checkmark"></span>
+						</label>
+					</div>
+                                        <div style="margin-right: -200px;"> <button type="submit" onclick="return validateBirthday()" > Enroll Now </button></div></form>
+                 
+<!--                    <div style="margin: -70px; margin-left: -650px;"> <a href="Admission.html"> <button onclick="goBack()">Back</button></a>
+                   </div> 
+                -->
+			</div>
+		</div>
+        <script>
+//            
+//  document.getElementById("firstname").value = localStorage.getItem("firstname");
+//  document.getElementById("lastname").value = localStorage.getItem("lastname");
+//  document.getElementById("email").value = localStorage.getItem("email");
+//  document.getElementById("password").value = localStorage.getItem("password");
+//  document.getElementById("confirmpassword").value = localStorage.getItem("confirmpassword");          
+function validateBirthday() {
+
+  var today = new Date();
+  var birthdate= new Date(document.querySelector("input[name='birthdate']").value);
+  var age = today.getFullYear() - birthdate.getFullYear();
+//  var firstname = localStorage.getItem("firstname");
+//  var lastname = localStorage.getItem("lastname");
+//  var email = localStorage.getItem("email");
+//  var password = localStorage.getItem("password");
+//  var confirmpassword = localStorage.getItem("confirmpassword");
+//  var phone = document.getElementById("phone").value;
+//  var gender = document.getElementById("gender").value;
+//  var degree = document.getElementById("degree").value;
+//  var diploma = document.getElementById("diploma").value;
+
+  if (age<18) {
+    alert("Sorry, you must be at least 18 years old.");
+    birthdate.focus();
+  } else {
+    
+  }
+ 
+ 
+ 
+
+    // Perform validation and save the data in local storage
+//    localStorage.setItem("firstname", firstname);
+//    localStorage.setItem("lastname", lastname);
+//    localStorage.setItem("email", email);
+//    localStorage.setItem("password", password);
+//    localStorage.setItem("confirmpassword", confirmpassword);
+//    localStorage.setItem("phone", phone);
+//    localStorage.setItem("birthdate", birthdate);
+//    localStorage.setItem("gender", gender);
+//    localStorage.setItem("degree", degree);
+//    localStorage.setItem("diploma", diploma);
+  }
+//
+//
+//
+//window.onload = function() {
+//  document.getElementById("firstname").value = localStorage.getItem("firstname");
+//  document.getElementById("lastname").value = localStorage.getItem("lastname");
+//  document.getElementById("email").value = localStorage.getItem("email");
+//  document.getElementById("password").value = localStorage.getItem("password");
+//  document.getElementById("confirmpassword").value = localStorage.getItem("confirmpassword");
+//}
+
+
+//   if (age < 18) {
+//    alert("Sorry, you must be at least 18 years old.");
+//    birthdate.focus();
+//   } else {
+    
+//   }
+
+
+
+
+        </script>
+		<script>
+            function goBack() {
+  // Save the form data
+  sessionStorage.setItem("formData", JSON.stringify(document.getElementById("form").elements));
+  window.history.back();
+}
+        </script>
+
+        
+	</body>
+</html>
